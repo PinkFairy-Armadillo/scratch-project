@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import NewsView from './components/NewsView.jsx';
+import Restaurants from './components/restaurants.jsx';
 import './styles.css';
 
 
@@ -16,7 +17,10 @@ class App extends Component {
 
   render() {
     return(
+      <div>
       <NewsView />
+      <Restaurants />
+      </div>
     )
   }
 }

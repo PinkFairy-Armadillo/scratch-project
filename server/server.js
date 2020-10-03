@@ -5,13 +5,15 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 5000;
 
-// add routers here
+// routers
+const businessesRouter = require('./routes/businesses.js');
 
 // application-level middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// router handlers
+// route handlers
+app.use('/businesses', businessesRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.resolve(__dirname, '..build')));
