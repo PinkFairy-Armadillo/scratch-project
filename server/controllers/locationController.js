@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const locationController = {};
 
 const LOCATION_URI_BASE = 'https://maps.googleapis.com/maps/api/geocode/maps/api/geocode/json?';
-const API_KEY = 'AIzaSyAXmU2z5P3g8-J8zYFcUbXghEQuEgAssZM';
+const API_KEY = '';
 
 const getCountryName = (addressComponents) => {
 
