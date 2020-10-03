@@ -2,9 +2,9 @@ import * as types from "../constants/actionTypes";
 
 const initialState = {
   city: 'NYC',
-  lat: '',
-  long: '',
-  countryCode: '',
+  lat: '40.712775',
+  long: '-74.005973',
+  countryCode: 'US',
   currentUser: ''
 };
 
