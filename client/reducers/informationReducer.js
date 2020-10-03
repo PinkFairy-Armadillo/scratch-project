@@ -18,6 +18,11 @@ const informationReducer = (state = initialState, action) => {
         long: action.payload.long,
         countryCode: action.payload.countryCode,
       };
+      case types.ADD_USER: 
+      return {
+        ...state,
+        currentUser: action.payload
+      };
     default:
       return state;
   }
