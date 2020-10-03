@@ -16,10 +16,11 @@ class RestaurantsFeed extends Component {
     }
   }
 
-  // const RESTAURANTS_API_URI = '';
 //   componentDidMount() {
-//     fetch('http://localhost:3001/events/') // TAKE FROM THE SERVER PART 
+//     fetch('http://localhost:5000/events/') // TAKE FROM THE SERVER PART AND MAKE SURE THAT WE HAVE AT LEAST 40 OBJECTS
 //         .then((data) => data.json())
+ //        .then((data) => console.log(data)) // MAKE SURE THAT WE HAVE AN ARRAY OF OBJECTS
+//         .then((data) => )
 //         .then((data) => {
 //           let name = [],
 //           let image_url = [],

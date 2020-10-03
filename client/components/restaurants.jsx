@@ -11,7 +11,8 @@ class Restaurants extends Component {
  
   render() {
     return (
-      <div id='restaurantsFeed'>
+      <div className='restaurantsFeed'>
+        <h1>Restaurants around you</h1>
         <RestaurantsFilter />
         <RestaurantsFeed />    
       </div>
