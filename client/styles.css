@@ -1,6 +1,6 @@
 .info-container {
   display: flex;
-  
+
 }
 
 .item-wrapper {
@@ -25,4 +25,41 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+} 
+
+#restaurantsFeed {
+  display: inline;
+  width: 95%;
+  border: color 1px solid;
+}
+
+.restaurantButtons {
+  display: block;
+  width:10%;
+  border: solid 1px black;
+}
+
+.restaurantContainer {
+  width: 80%;
+  border: solid 1px black;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.restaurantWrapper {
+  height: 130px;
+  width: 150px;
+  border: 1px solid black;
+  margin: 10px; 
+}
+
+.restaurantWrapper p {
+  font-size: 10px;
+  line-height: 5pt;
+  margin-left:5px;
+}
+
+.restaurantWrapper img {
+  margin-left:5px;
 }
