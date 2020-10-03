@@ -15,6 +15,7 @@ businessesController.getBusinessData = (req, res, next) => {
   const lon = coordinates.match(/[\d.-]+$/)[0];
   const limit = 5; // we can make this dynamic later
 
+  // TODO: implement our API key
   fetch(`https://api.yelp.com/v3/businesses/search?latitude=${lat}&longituge=${lon}&categories=${category}&limit=${limit}`)
     .then((data) => (data.json()))
     .then((businessData) => {
