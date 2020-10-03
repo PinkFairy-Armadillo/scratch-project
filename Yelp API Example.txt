@@ -1,0 +1,44 @@
+Yelp businesses response example
+{
+            “id”: “vRrVSB-LegwUwIxpkeRVtQ”,
+            “alias”: “le-bernardin-new-york”,
+            “name”: “Le Bernardin”,
+            “image_url”: “https://s3-media4.fl.yelpcdn.com/bphoto/c54rsVNmAhn_Ccz4tIXI_Q/o.jpg”,
+            “is_closed”: false,
+            “url”: “https://www.yelp.com/biz/le-bernardin-new-york?adjust_creative=MraceK43kbvzPpYaB7uTBQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=MraceK43kbvzPpYaB7uTBQ”,
+            “review_count”: 2537,
+            “categories”: [
+                {
+                    “alias”: “french”,
+                    “title”: “French”
+                },
+                {
+                    “alias”: “lounges”,
+                    “title”: “Lounges”
+                }
+            ],
+            “rating”: 4.5,
+            “coordinates”: {
+                “latitude”: 40.761557,
+                “longitude”: -73.981763
+            },
+            “transactions”: [],
+            “price”: “$$$$“,
+            “location”: {
+                “address1": “155 W 51st St”,
+                “address2": “”,
+                “address3": “The Equitable Bldg”,
+                “city”: “New York”,
+                “zip_code”: “10019”,
+                “country”: “US”,
+                “state”: “NY”,
+                “display_address”: [
+                    “155 W 51st St”,
+                    “The Equitable Bldg”,
+                    “New York, NY 10019”
+                ]
+            },
+            “phone”: “+12125541515”,
+            “display_phone”: “(212) 554-1515”,
+            “distance”: 6328.07179784047
+        },
