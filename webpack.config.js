@@ -1,8 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+//console.log(path.resolve(__dirname, 'client/index.html'))
 
 module.exports = {
-  entry: './client/index.js',
+  entry: path.resolve(__dirname, 'client/index.js'),
   output: {   // The Webpack build process, after it runs, will make a file in the `build` folder called `bundle.js`.
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -36,12 +38,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./client/index.html",
-      filename: "./index.html"
-    })
+      template: path.resolve(__dirname, 'client/template.html'),
+      filename: 'index.html',
+      alwaysWriteToDisk: true
+    }),
+    new HtmlWebpackHarddiskPlugin()
   ],
   devServer: {
-    publicPath: '/build',
+    contentBase: path.join(__dirname, 'build'),
+    //publicPath: '/build',
       proxy: {
         '/api': 'http://localhost:3001', // !!!CHECK FOR THE PORTS
       },

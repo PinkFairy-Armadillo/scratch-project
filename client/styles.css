@@ -1,0 +1,28 @@
+.info-container {
+  display: flex;
+  
+}
+
+.item-wrapper {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.item-wrapper img{
+  height: auto;
+  width: 100%;
+  display: flex;
+  border: 1px solid black;
+}
+
+.item-wrapper p, strong{
+  margin: 0;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
