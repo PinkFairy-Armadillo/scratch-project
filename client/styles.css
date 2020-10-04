@@ -1,6 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
 .info-container {
   display: flex;
-  
+
 }
 
 .item-wrapper {
@@ -73,4 +79,74 @@
   border: 1px solid black;
   flex: 1;
   align-items: center;
+} 
+
+.restaurantsFeed {
+  display: inline;
+  width: 50%;
+  border: color 1px solid;
+}
+
+.restaurantButtons {
+  display: block;
+  width:300px;;
+  height: 40px;
+  /* border: solid 1px black; */
+  line-height: 4pt;
+  margin-left:5px;
+}
+
+.restaurantButtons h4 {
+  font-size: 14px;
+  margin:5px;
+}
+
+.restaurantContainer {
+  width: 100%;
+  border: solid 1px black;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}
+
+.restaurantWrapper {
+  height: 250px;
+  width: 18%;
+  min-width: 150px;
+  border: 1px solid black;
+  margin: 10px; 
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.restaurantWrapper p {
+  font-size: 10px;
+  line-height: 5pt;
+  margin-left:5px;
+}
+
+.restaurantWrapper img {
+  margin-left:5px;
+  /* height: auto;
+  width: 100%;
+  display: flex;
+  border: 1px solid black; */
+}
+.restaurantButtons button {
+  width: 75px;
+  height: 15px;
+  font-size: 9px;
+  font-weight: bold;
+  color:white;
+  gap:5px;
+  background-color: rgb(77, 77, 77);
+  border:solid 1 px white;
+  transition: background-color, color;
+  margin:2px;
+}
+
+.restaurantButtons button:hover {
+  color: rgb(77, 77, 77);
+  background-color: white;
 }

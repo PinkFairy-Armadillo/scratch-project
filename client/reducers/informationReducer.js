@@ -1,4 +1,4 @@
-import * as types from "../constants/actionTypes";
+// import * as types from "../constants/actionTypes";
 
 const initialState = {
   city: 'NYC',
@@ -27,5 +27,4 @@ const informationReducer = (state = initialState, action) => {
       return state;
   }
 }
-
-export default informationReducer;
+// export default informationReducer;
