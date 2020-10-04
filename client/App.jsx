@@ -18,10 +18,23 @@ class App extends Component {
 
   render() {
     return(
-      <div>
-      <NewsView />
-      <Restaurants />
-      </div>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path={'/'}>
+              <WeatherView />
+              <NewsView />
+            </Route>
+            <Route exact path={'/detailed-weather'}>
+              <DetailedWeather />
+            </Route>
+          </Switch>
+          <Restaurants />
+        </div>
+        </Router>
+      // <div>
+      //   <DetailedWeather />
+      // </div>
     )
   }
 }
