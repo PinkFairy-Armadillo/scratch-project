@@ -7,6 +7,8 @@ const PORT = 5000;
 
 // routers
 const businessesRouter = require('./routes/businesses.js');
+const locationRouter = require('./routes/location.js');
+const newsRouter = require('./routes/news.js');
 
 // application-level middleware
 app.use(bodyParser.json());
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // route handlers
 app.use('/businesses', businessesRouter);
+app.use('/location', locationRouter);
+app.use('/news', newsRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.resolve(__dirname, '..build')));
@@ -30,7 +34,7 @@ app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,
-    message: { err: 'An error occured' },
+    message: { err: `An error occured. ERROR: ${JSON.stringify(err)}` },
   };
 
   const errObj = Object.assign({}, defaultErr, err);
