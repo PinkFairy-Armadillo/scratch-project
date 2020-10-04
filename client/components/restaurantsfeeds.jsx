@@ -16,31 +16,36 @@ class RestaurantsFeed extends Component {
     }
   }
 
-//   componentDidMount() {
-//     fetch('http://localhost:5000/events/') // TAKE FROM THE SERVER PART AND MAKE SURE THAT WE HAVE AT LEAST 40 OBJECTS
-//         .then((data) => data.json())
- //        .then((data) => console.log(data)) // MAKE SURE THAT WE HAVE AN ARRAY OF OBJECTS
-//         .then((data) => )
-//         .then((data) => {
-//           let name = [],
-//           let image_url = [],
-//           let rating = [],
-//           let categories = [],
-//           let reviews = [],
-//           let price = [],
-//           let location = []
-//           data.map(el => {
-//             name.push(el.name)
-//             image_url.push(el.image_url)
-//             rating.push(el.rating)
-//             categories.push(el.categories)
-//             reviews.push(el.reviews)
-//             price.push(el.price)
-//             location.push(el.location)
-//           })  
-//           this.setState({...this.state, name: name, image_url: image_url, rating: rating, categories: categories, reviews: reviews, price: price, location: location })
-//         }); 
-//   }
+  componentDidMount() {
+    fetch('http://localhost:5000/businesses') // TAKE FROM THE SERVER PART AND MAKE SURE THAT WE HAVE ~40 OBJECTS
+        .then((data) => data.json())
+        .then((data) => console.log(data)) // MAKE SURE THAT WE HAVE AN ARRAY OF OBJECTS
+        // .then((res))
+        .then((data) => {
+          let name = []
+          let image_url = []
+          let rating = []
+          let categories = []
+          let reviews = []
+          let price = []
+          let location = []
+          data.map(el => {
+            name.push(el.name)
+            image_url.push(el.image_url)
+            rating.push(el.rating)
+            categories.push(el.categories)
+            reviews.push(el.reviews)
+            price.push(el.price)
+            location.push(el.location)
+          })  
+          this.setState({...this.state, name: name, image_url: image_url, rating: rating, categories: categories, reviews: reviews, price: price, location: location })
+        }).catch(error => {
+          ({
+            log: `fetch request error in restaurants feed. Error getting restaurants data from data base: error code ${error.status}`,
+            message: { error: 'Error occurred during fetch request from Restaurants feed' },
+          })
+        })
+  }
 
   render() {
     const boxes = [];
@@ -76,7 +81,7 @@ class RestaurantCard extends Component {
         <p>Rating: {this.props.rating}</p>
         <p>Categories: {this.props.categories}</p>
         <p>Reviews: {this.props.reviews}</p>
-        <p>Price, $: {this.props.price}</p>
+        <p>Price segment: {this.props.price}</p>
         <p>Location: {this.props.location}</p>
       </div>
     );
