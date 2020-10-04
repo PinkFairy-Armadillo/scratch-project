@@ -38,6 +38,9 @@ app.use((err, req, res, next) => {
   };
 
   const errObj = Object.assign({}, defaultErr, err);
+
+  console.log(errObj.log);
+
   return res.status(errObj.status).json(errObj.message);
 });
 
