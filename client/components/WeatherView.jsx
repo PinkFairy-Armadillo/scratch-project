@@ -3,7 +3,30 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const WeatherView = props => {
+  // const [weatherData, setWeatherData] = useState([]);
+  // const [fetchedData, setFetchedData] = useState(false);
+
+  // const fetchData = () => {
+  //   console.log('fetching weather');
+  //   fetch(`http://localhost:5000/weather/`, {
+  //     method: 'GET',
+  //     headers: {
+  //       "Content-Type": "Application/JSON",
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     setWeatherData(data);
+  //     setFetchedData(true);
+  //   })
+  //   .catch(err => console.log('Weather fetch ERROR: ', err));
+  // }
   
+  // useEffect(() => {
+  //   if (!fetchedData) fetchData();
+  // },[]);
+
   const WEATHER_API_URI = '#';
   const weatherInfo = {
     dayName: 'Monday',

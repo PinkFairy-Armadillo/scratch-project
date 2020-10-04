@@ -3,34 +3,80 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const NewsView = props => {
+  const [newsData, setNewsData] = useState([]);
+  const [fetchedData, setFetchedData] = useState(false);
   
-  const NEWS_API_URI = '#';
+  const countryCode = 'US';
+  const DEFAULT_IMG = 'https://joebalestrino.com/wp-content/uploads/2019/02/Marketplace-Lending-News.jpg';
+
+  const fetchData = (category = 'business') => {
+    console.log('fetching news');
+    fetch(`http://localhost:5000/news/${countryCode}?category=${category}`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "Application/JSON",
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setNewsData(data.news );
+      setFetchedData(true);
+    })
+    .catch(err => console.log('News fetch ERROR: ', err));
+  }
   
-  const imgURL = 'https://s.yimg.com/it/api/res/1.2/mb7a8hbeszkqryeaNs1CzA--~A/YXBwaWQ9eW5ld3M7c209MTt3PTgwMA--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2020-09/02e56da0-fe15-11ea-9fff-350ed1bdddc7';
-  const headline = 'Tesla announces releases of Electric Helicopters';
-  const source = 'Reuters';
-  const newsLink = '#';
-  const arrayOfNewsItems = [{ imgURL, headline, source, newsLink }, 
-    { imgURL, headline, source, newsLink }, { imgURL, headline, source, newsLink }, 
-    { imgURL, headline, source, newsLink }, { imgURL, headline, source, newsLink } ];
-  const newsArticles = arrayOfNewsItems.map(newsInfo => {
-    return ( 
-      <div className='item-wrapper'>
-        <a href={newsLink}>
-        <img src={newsInfo.imgURL}></img>
-        <strong>{headline}</strong>
-        <p>{source}</p>
-        </a>
-      </div>
-    );
-  });
-  return (
-    <div>
+  const changeCategory = (category) => {
+    return () => {
+      console.log(category);
+      fetchData(category);
+    }
+  }
+
+  useEffect(() => {
+    if (!fetchedData) fetchData();
+  },[]);
+
+  if (!newsData) return null;
+
+  if (!newsData.length)
+    return (
+      <div>Sorry, no articles found</div>
+    );  
+
+  if (fetchedData){
+    const newsArticles = newsData.map(newsInfo => {
+      return ( 
+        <div className='item-wrapper'>
+          <a href={newsInfo.url}>
+          <img src={newsInfo.urlToImage || DEFAULT_IMG}></img>
+          <strong>{newsInfo.title}</strong>
+          <p>{newsInfo.source.name}</p>
+          </a>
+        </div>
+      );
+    });
+    const CATEGORIES = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
+    const buttonsArray = [];
+    
+    for (let i = 0; i < CATEGORIES.length; i += 1) {
+      buttonsArray.push(
+        <button className="news-btns" onClick={changeCategory(CATEGORIES[i])}>{CATEGORIES[i]}</button>
+      )
+    }
+
+    return (
+      <div>
       <h1>Local News Information</h1>
+      {buttonsArray}
       <div className='info-container'>
         {newsArticles}
       </div>
     </div>
-  );
+    )
+  } else {
+    return (
+      <h1>Fetching from database</h1>
+    )
+  } 
 }
 export default NewsView;
