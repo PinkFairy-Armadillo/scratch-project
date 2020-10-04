@@ -48,15 +48,15 @@ const WeatherView = props => {
     );
   });
   return (
-    <div>
-      <h1>Local Weather Information</h1>
+    
+      
       <div className='weather-container'>
         {weatherArr}
+        <Link to={'/detailed-weather'}>
+          <button>More Info</button>
+        </Link>
       </div>
-      <Link to={'/detailed-weather'}>
-        <button>More Info</button>
-      </Link>
-    </div>
+    
   );
 }
 export default WeatherView;
