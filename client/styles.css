@@ -44,8 +44,10 @@
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  border-radius: 2%;
   box-shadow: 2px 2px #444444;
   margin-right: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .weather-wrapper img{
@@ -176,12 +178,14 @@
 }
 
 .hero-container {
-  background-image: url('https://www.developmentguild.com/assets/nyc-banner-night.jpg');
+  background-image: url('https://www.developmentguild.com/assets/nyc-banner-night.jpg');  
   display: flex;
   flex-direction: column;
   height: 600px;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;   
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .search-input {
@@ -199,4 +203,8 @@
 .search-wrapper h1{
   font-size: 2.5em;
   margin-bottom: 10px;
+}
+
+.search-wrapper {
+  background: rgba(255, 255, 255, 0.2);
 }
