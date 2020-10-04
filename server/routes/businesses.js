@@ -3,9 +3,14 @@ const businessesController = require('../controllers/businessesController.js');
 
 const router = express.Router();
 
-router.get('/:category/:coordinates', businessesController.getBusinessData, (req, res) => {
-  // TODO: object inside json() needs to be constructed from the properties stored in res.locals
-  res.send(200).json({});
+router.get('/:category', businessesController.getBusinessData, (req, res) => {
+  /* include lat and lon in query string
+   * example url where 'restaurants' is the category:
+   * http://localhost:3000/restaurants?lat=40.712775&lon=-74.005973
+   */
+
+  const { businesses } = res.locals;
+  res.json(businesses);
 });
 
 module.exports = router;

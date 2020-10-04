@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// this is a commentssss 
+
 const app = express();
 const PORT = 5000;
 
@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // catch-all route handler
-app.use('/', (req, res) => (res.sendStatus(404)));
+app.use('*', (req, res) => (res.sendStatus(404)));
 
 // global error handler
 app.use((err, req, res, next) => {
