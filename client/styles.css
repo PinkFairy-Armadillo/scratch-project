@@ -16,6 +16,7 @@
   flex-direction: column;
   border: 1px solid black;
   margin: 10px;
+  flex: 1;
 }
 
 .item-wrapper img{
@@ -147,6 +148,24 @@
 }
 
 .restaurantButtons button:hover {
+  color: rgb(77, 77, 77);
+  background-color: white;
+}
+
+.news-btns {
+  width: 75px;
+  height: 15px;
+  font-size: 9px;
+  font-weight: bold;
+  color:white;
+  gap:5px;
+  background-color: rgb(77, 77, 77);
+  border:solid 1 px white;
+  transition: background-color, color;
+  margin:2px;
+}
+
+.news-btns:hover{
   color: rgb(77, 77, 77);
   background-color: white;
 }
