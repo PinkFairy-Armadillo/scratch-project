@@ -35,9 +35,9 @@ const WeatherView = props => {
     loTemp: '65',
   }
   const arrayOfDays = [ weatherInfo, weatherInfo, weatherInfo, weatherInfo ];
-  const weatherArr = arrayOfDays.map(day => {
+  const weatherArr = arrayOfDays.map((day, i) => {
     return ( 
-      <div className='weather-wrapper'>
+      <div key={`dd${i}`} className='weather-wrapper'>
         <strong><center>{day.dayName}</center></strong>
         <img src={day.imgURL}></img>
         <div className='temp-wrapper'>
