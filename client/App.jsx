@@ -4,10 +4,11 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-
+import WeatherView from './components/WeatherView.jsx';
 import NewsView from './components/NewsView.jsx';
 import Restaurants from './components/restaurants.jsx';
 import './styles.css';
+import DetailedWeather from './components/DetailedWeather.jsx';
 
 
 class App extends Component {
@@ -17,10 +18,23 @@ class App extends Component {
 
   render() {
     return(
-      <div>
-      <NewsView />
-      <Restaurants />
-      </div>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path={'/'}>
+              <WeatherView />
+              <NewsView />
+            </Route>
+            <Route exact path={'/detailed-weather'}>
+              <DetailedWeather />
+            </Route>
+          </Switch>
+          <Restaurants />
+        </div>
+        </Router>
+      // <div>
+      //   <DetailedWeather />
+      // </div>
     )
   }
 }

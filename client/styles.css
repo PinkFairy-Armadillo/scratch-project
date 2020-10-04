@@ -31,6 +31,54 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.weather-container {
+  display: flex;
+  width: fit-content;
+}
+
+.weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  box-shadow: 2px 2px #444444;
+  margin-right: 5px;
+}
+
+.weather-wrapper img{
+  margin: 0px;
+  align-self: center;
+}
+
+.weather-wrapper p{
+  width: auto;
+  justify-content: center;
+}
+
+.weather-wrapper strong{
+  margin: 5px 0px 0px 0px;
+}
+
+.temp-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temp-wrapper p{
+  margin: 0px 5px 5px 5px;
+}
+
+.detailed-weather-container {
+  display: flex;
+}
+
+.detailed-weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  flex: 1;
+  align-items: center;
 } 
 
 .restaurantsFeed {
