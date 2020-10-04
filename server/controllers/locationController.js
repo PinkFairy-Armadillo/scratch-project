@@ -39,7 +39,7 @@ locationController.getCountryCode = async (req, res, next) => {
       /* if the object types key contains value of "country",
       store lowercase version of "short_name" key's value */
       if (obj.types.contains('country')) {
-        res.locals.countryCode = obj.short_name;
+        res.locals.countryCode = obj.short_name.toLowerCase();
         return next();
       }
     }

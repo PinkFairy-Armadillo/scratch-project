@@ -7,6 +7,8 @@ const PORT = 5000;
 
 // routers
 const businessesRouter = require('./routes/businesses.js');
+const locationRouter = require('./routes/location.js');
+const newsRouter = require('./routes/news');
 
 // application-level middleware
 app.use(bodyParser.json());
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // route handlers
 app.use('/businesses', businessesRouter);
+app.use('/location', locationRouter);
+app.use('news', newsRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.resolve(__dirname, '..build')));
