@@ -130,7 +130,6 @@
   margin-bottom: 10px;
   font-size:13px;
   font-weight: bold;
-  /* margin-left:5px; */
 }
 
 .search-wrapper h1{
@@ -168,4 +167,25 @@
 
 #title {
   font-size: 27px;
+}
+
+.loginButton {
+  align-self: flex-start;
+}
+
+#loginButton {
+  margin:5px;
+  width: 50px;
+  height: 30px;
+  margin-bottom: 10px;
+  font-size:13px;
+  font-weight: bold;
+  background-color: Transparent;
+  transition: color, background-color;
+  border-radius:5px; 
+}
+
+#loginButton:hover {
+  color:white;
+  background-color:gray;
 }

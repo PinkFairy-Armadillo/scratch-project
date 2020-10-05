@@ -60,13 +60,16 @@ const WeatherView = props => {
     if (!fetchedData) fetchData();
   },[]);
 
+  useEffect( () => {
+    fetchData();
+  }, [props.city])
+
   if (fetchedData) {
     const weatherDivs = createWeatherBoxes(weatherData);
     return (
       <div className='weather-container'>
-        {weatherDivs}
         <Link to={'/detailed-weather'}>
-          <button>More Info</button>
+          {weatherDivs}
         </Link>
       </div>
   );

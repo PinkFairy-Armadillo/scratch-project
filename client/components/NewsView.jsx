@@ -64,6 +64,10 @@ const NewsView = (props) => {
     fetchData();
   }, [props.city]);
 
+  useEffect( () => {
+    fetchData();
+  }, [props.city])
+
   if (!newsData) return null;
 
   if (fetchedData) {
