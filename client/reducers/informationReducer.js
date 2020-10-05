@@ -9,15 +9,15 @@ const initialState = {
 
 const informationReducer = (state = initialState, action) => {
   switch(action.type) {
-    case types.ADD_CITY: 
+    case types.ADD_CITY:
+      console.log('action payload ',action.payload);
       return {
-        ...state,
         city: action.payload.city,
-        lat: action.payload.lat,
-        long: action.payload.long,
+        lat: action.payload.latitude,
+        long: action.payload.longitude,
         countryCode: action.payload.countryCode,
       };
-      case types.ADD_USER: 
+    case types.ADD_USER: 
       return {
         ...state,
         currentUser: action.payload

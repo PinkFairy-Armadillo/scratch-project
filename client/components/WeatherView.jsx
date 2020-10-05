@@ -60,6 +60,10 @@ const WeatherView = props => {
     if (!fetchedData) fetchData();
   },[]);
 
+  useEffect( () => {
+    fetchData();
+  }, [props.city])
+
   if (fetchedData) {
     const weatherDivs = createWeatherBoxes(weatherData);
     return (

@@ -4,21 +4,14 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-//import WeatherView from './components/WeatherView.jsx';
-import NewsView from './components/NewsView.jsx';
-import ActivitiesView from './components/ActivitiesView.jsx';
+import Login from './components/Login.jsx';
 import './styles.css';
 import DetailedWeather from './components/DetailedWeather.jsx';
-import Search from './components/Search.jsx';
-import Login from './components/Login.jsx';
+import FrontPage from './components/FrontPage.jsx';
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+const App = props => {
+ 
     return(
       <Router>
         <div>
@@ -29,9 +22,7 @@ class App extends Component {
             </Route>
 
             <Route exact path={'/'}>
-              <Search />
-              <NewsView />
-              <ActivitiesView />
+              <FrontPage />
             </Route>
 
             <Route exact path={'/detailed-weather'}>
@@ -41,7 +32,7 @@ class App extends Component {
         </div>
         </Router>
     )
-  }
+  
 }
 
 export default App;

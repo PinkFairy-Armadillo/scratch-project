@@ -54,6 +54,10 @@ const ActivitiesView = props => {
     if (!fetchedData) fetchData();
   },[]);
 
+  useEffect( () => {
+    fetchData();
+  }, [props.city])
+
   if (!activitiesData) return null;
 
   if (fetchedData){
