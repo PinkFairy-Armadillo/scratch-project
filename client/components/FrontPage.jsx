@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
+import { Link } from 'react-router-dom';
 import WeatherView from './WeatherView.jsx';
 import NewsView from './NewsView.jsx';
 import ActivitiesView from './ActivitiesView.jsx';
@@ -57,6 +58,10 @@ const Search = (props) => {
   return (
     <div>
     <div className='hero-container'>
+      <Link to={'/login'} className='loginButton'>
+          <button id='loginButton'>Login</button>
+          {/* <Login /> */}
+      </Link>
       <WeatherView city={props.city}/>
       <div className='search-wrapper'>
         <h1><center>Find the best your city has to offer</center></h1>

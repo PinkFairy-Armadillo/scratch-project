@@ -68,9 +68,8 @@ const WeatherView = props => {
     const weatherDivs = createWeatherBoxes(weatherData);
     return (
       <div className='weather-container'>
-        {weatherDivs}
         <Link to={'/detailed-weather'}>
-          <button>More Info</button>
+          {weatherDivs}
         </Link>
       </div>
   );
