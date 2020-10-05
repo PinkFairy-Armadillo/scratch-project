@@ -28,7 +28,7 @@ class App extends Component {
               <ActivitiesView />
             </Route>
             <Route exact path={'/detailed-weather'}>
-              <DetailedWeather />
+              {/*<DetailedWeather />*/}
             </Route>
           </Switch>
         </div>
