@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import * as actions from '../actions/actions.js'
 
-const mapStateToProps =({
-  informationReducer: { lat, long }  
+const mapStateToProps = ({
+  informationReducer: { lat, long }
 }) => ({ lat, long });
+
+const mapDispatchToProps = dispatch => ({
+  addWeather(data) { dispatch(actions.addWeather(data)) }
+});
 
 const WeatherView = props => {
   const [weatherData, setWeatherData] = useState([]);
@@ -17,14 +22,16 @@ const WeatherView = props => {
         "Content-Type": "Application/JSON",
       }
     })
-    .then(res => res.json())
-    .then(data => {
-      setWeatherData([data.weather]);
-      setFetchedData(true);
-    })
-    .catch(err => console.log('Weather fetch ERROR: ', err));
+      .then(res => res.json())
+      .then(data => {
+        setWeatherData([data.weather]);
+        setFetchedData(true);
+        props.addWeather(data.weather.daily);
+        console.log('WeatherView Data: ', data.weather.daily);
+      })
+      .catch(err => console.log('Weather fetch ERROR: ', err));
   }
-  
+
   const convertKtoF = (K) => Math.round((((K - 273.15) * 9) / 5) + 32);
 
   const dayOfWeek = (dayNum) => {
@@ -58,9 +65,9 @@ const WeatherView = props => {
 
   useEffect(() => {
     if (!fetchedData) fetchData();
-  },[]);
+  }, []);
 
-  useEffect( () => {
+  useEffect(() => {
     fetchData();
   }, [props.city])
 
@@ -72,16 +79,16 @@ const WeatherView = props => {
           {weatherDivs}
         </Link>
       </div>
-  );
+    );
   } else {
     return (
       <div>Fetching weather info</div>
     )
   }
-  
+
 }
 
-export default connect(mapStateToProps, null)(WeatherView);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherView);
 
 /*TODO:
   get more days for weather

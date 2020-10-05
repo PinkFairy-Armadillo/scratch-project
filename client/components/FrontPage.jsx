@@ -10,9 +10,9 @@ const mapDispatchToProps = dispatch => ({
   addCity(data) { dispatch(actions.addCity(data)) }
 });
 
-const mapStateToProps = ( {
-  informationReducer: { lat,long,countryCode,city }
-}) => ({lat,long,countryCode,city});
+const mapStateToProps = ({
+  informationReducer: { lat, long, countryCode, city }
+}) => ({ lat, long, countryCode, city });
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState('');
@@ -23,10 +23,10 @@ const Search = (props) => {
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault();   
+    event.preventDefault();
     if (!searchValue) return alert('Please type in a city');
     setCity(sendLocation(searchValue));
-    event.preventDefault();   
+    event.preventDefault();
   }
 
   const sendLocation = (location) => {
@@ -36,43 +36,47 @@ const Search = (props) => {
         "Content-Type": "Application/JSON"
       }
     })
-    .then(res => res.json())
-    .then(data => {
-      setCity(searchValue);
-      props.addCity({
-        ...data,
-        city: searchValue
+      .then(res => res.json())
+      .then(data => {
+        setCity(searchValue);
+        props.addCity({
+          ...data,
+          city: searchValue
+        })
       })
-    })
-    .then(data => {
-      setCity(searchValue);
-      props.addCity({
-        ...data,
-        city: searchValue
+      .then(data => {
+        setCity(searchValue);
+        props.addCity({
+          ...data,
+          city: searchValue
+        })
       })
-    })
-    .catch(err => console.log('Location fetch ERROR: ', err));
+      .catch(err => console.log('Location fetch ERROR: ', err));
     return location;
   }
 
   return (
     <div>
-    <div className='hero-container'>
-      <Link to={'/login'} className='loginButton'>
-          <button id='loginButton'>Login</button>
-          {/* <Login /> */}
-      </Link>
-      <WeatherView city={props.city}/>
-      <div className='search-wrapper'>
-        <h1><center>Find the best your city has to offer</center></h1>
-        <form onSubmit={handleSubmit} className='login-form'>
-          <input className='search-input' type="text" value={searchValue} onChange={handleChange} />
-          <input className='search-btn' type="submit" value="Search" />
-        </form>
+      <div className='hero-container'>
+        <div className='top-container'>
+          <Link to={'/login'} className='loginButton'>
+            <button id='loginButton'>Login</button>
+            {/* <Login /> */}
+          </Link>
+          <WeatherView city={props.city} />
+        </div>
+        <div className='search-wrapper'>
+          <h1><center>Find the best your city has to offer</center></h1>
+          <form onSubmit={handleSubmit} className='login-form'>
+            <input className='search-input' type="text" value={searchValue} onChange={handleChange} />
+            <input className='search-btn' type="submit" value="Search" />
+          </form>
+        </div>
       </div>
-    </div>  
-    <ActivitiesView city={props.city} />
-    <NewsView city={props.city} />
+      <div className='main-content'>
+        <ActivitiesView city={props.city} />
+        <NewsView city={props.city} />
+      </div>
     </div>
   );
 }
