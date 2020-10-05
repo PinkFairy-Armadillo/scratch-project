@@ -132,7 +132,7 @@
   width: 18%;
   min-width: 150px;
   border: 1px solid black;
-  margin: 10px; 
+  margin: 10px;
   font-size: 12px;
   margin-top: 5px;
   box-shadow: 2px 2px #444444;
@@ -171,17 +171,8 @@
 }
 
 .news-btns {
-  width: 75px;
-  height: 15px;
-  font-size: 9px;
-  font-weight: bold;
-  color:white;
-  gap:5px;
-  background-color: rgb(77, 77, 77);
-  border:solid 1 px white;
-  transition: background-color, color;
-  margin:2px;
-}
+	margin: 10px 4px;
+ }
 
 .news-btns:hover{
   color: rgb(77, 77, 77);
@@ -193,14 +184,14 @@
 }
 
 .hero-container {
-  background-image: url('https://www.developmentguild.com/assets/nyc-banner-night.jpg');  
+  background-image: url('https://www.developmentguild.com/assets/nyc-banner-night.jpg');
   /* background-size: auto; */
   display: flex;
   flex-direction: column;
   height: 120%;
   min-height: 400px;
   justify-content: space-between;
-  align-items: center;   
+  align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
