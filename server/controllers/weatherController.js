@@ -5,7 +5,7 @@ const weatherController = {};
 const API_KEY = process.env.WEATHER_API_KEY;
 const EXCLUSIONS = 'minutely,hourly,alerts';
 
-// get information from google maps api
+// get information from weather api
 weatherController.getWeather = async (req, res, next) => {
   const { latitude, longitude } = req.query;
 
@@ -25,7 +25,7 @@ weatherController.getWeather = async (req, res, next) => {
       res.locals.weather = weatherData;
       return next();
     })
-    .catch((error) => next({ log: `Error in weatherController.getWeather; ERROR: ${error}` }));
+    .catch((error) => next(error));
 };
 
 module.exports = weatherController;
