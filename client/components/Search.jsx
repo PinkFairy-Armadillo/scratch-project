@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import WeatherView from './WeatherView.jsx';
 
-const BANNER_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Lower_Manhattan_skyline_-_June_2017.jpg/1280px-Lower_Manhattan_skyline_-_June_2017.jpg';
+
+const mapDispatchToProps = dispatch => ({
+  addCity: (data) => dispatch(actions.addCity(data)),
+});
+
+
+//const BANNER_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Lower_Manhattan_skyline_-_June_2017.jpg/1280px-Lower_Manhattan_skyline_-_June_2017.jpg';
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -13,8 +19,28 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     // send to back end
+    console.log('btn clicked');
+    sendLocation(searchValue);
+    event.preventDefault();
+
+    
   }
 
+  const sendLocation = (location) => {
+    console.log('sending location');
+    fetch(`http://localhost:5000/location/${location}`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "Application/JSON",
+        "Access-Control-Allow-Origin": '*'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => console.log('Location fetch ERROR: ', err));
+  }
 
   return (
     <div className='hero-container'>

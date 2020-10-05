@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps =({
+  informationReducer: { lat, long, countryCode }  
+}) => ({ lat, long, countryCode });
 
 const NewsView = props => {
   const [newsData, setNewsData] = useState([]);
   const [fetchedData, setFetchedData] = useState(false);
   const [currentArticles, setCurrentArticles] = useState([]);
   
-  const countryCode = 'US';
   const DEFAULT_IMG = 'https://joebalestrino.com/wp-content/uploads/2019/02/Marketplace-Lending-News.jpg';
 
   const fetchData = (category = 'business') => {
-    fetch(`http://localhost:5000/news/${countryCode}?category=${category}`, {
+    fetch(`http://localhost:5000/news/${props.countryCode}?category=${category}`, {
       method: 'GET',
       headers: {
         "Content-Type": "Application/JSON",
@@ -75,4 +79,4 @@ const NewsView = props => {
     )
   } 
 }
-export default NewsView;
+export default connect(mapStateToProps, null)(NewsView);

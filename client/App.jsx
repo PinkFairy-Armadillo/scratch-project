@@ -24,12 +24,11 @@ class App extends Component {
           <Switch>
             <Route exact path={'/'}>
               <Search />
-              <Restaurants />
               <NewsView />
               <ActivitiesView />
             </Route>
             <Route exact path={'/detailed-weather'}>
-              <DetailedWeather />
+              {/*<DetailedWeather />*/}
             </Route>
           </Switch>
         </div>

@@ -109,7 +109,7 @@
   width: 100%;
   /* border: solid 1px black; */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content:space-between;
   flex-wrap: wrap;
 }

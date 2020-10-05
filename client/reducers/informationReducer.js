@@ -1,5 +1,4 @@
 import * as types from "../constants/actionTypes";
-
 const initialState = {
   city: 'NYC',
   lat: '40.712775',
