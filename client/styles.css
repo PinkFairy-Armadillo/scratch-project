@@ -5,11 +5,12 @@
   text-decoration: none;
 }
 
-.info-container {
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  flex-wrap: wrap;  
+.main-content {
+	width: 80%;
+}
+
+.news-container {
+	margin: 50px 0px;
 }
 
 .item-wrapper {
@@ -25,7 +26,7 @@
   width: 18%;
   min-width: 150px;
   border: 1px solid black;
-  margin: 10px; 
+  margin: 10px;
   font-size: 12px;
   margin-top: 5px;
   box-shadow: 2px 2px #444444;
@@ -97,86 +98,6 @@
   border: 1px solid black;
   flex: 1;
   align-items: center;
-} 
-
-.restaurantsFeed {
-  display: inline;
-  width: 50%;
-  border: color 1px solid;
-}
-
-.restaurantButtons {
-  display: block;
-  width:500px;;
-  height: 40px;
-  line-height: 4pt;
-  margin-left:5px;
-}
-
-.restaurantButtons h4 {
-  font-size: 14px;
-  margin:5px;
-}
-
-.restaurantContainer {
-  width: 100%;
-  /* border: solid 1px black; */
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  flex-wrap: wrap;
-}
-
-.restaurantWrapper {
-  height: 250px;
-  width: 18%;
-  min-width: 150px;
-  border: 1px solid black;
-  margin: 10px;
-  font-size: 12px;
-  margin-top: 5px;
-  box-shadow: 2px 2px #444444;
-}
-
-.restaurantWrapper p {
-  font-size: 12px;
-  line-height: 6pt;
-  margin-left:5px;
-  margin-top:5px;
-}
-
-.restaurantWrapper img {
-  height: 150px;
-  width: 100%;
-  min-width: 150px;
-  display: flex;
-  /* border: 1px solid black; */
-}
-.restaurantButtons button {
-  width: 75px;
-  height: 15px;
-  font-size: 9px;
-  font-weight: bold;
-  color:white;
-  gap:5px;
-  background-color: rgb(77, 77, 77);
-  border:solid 1 px white;
-  transition: background-color, color;
-  margin:2px;
-}
-
-.restaurantButtons button:hover {
-  color: rgb(77, 77, 77);
-  background-color: white;
-}
-
-.news-btns {
-	margin: 10px 4px;
- }
-
-.news-btns:hover{
-  color: rgb(77, 77, 77);
-  background-color: white;
 }
 
 .banner {
@@ -226,8 +147,23 @@
 .signup-login-container {
   width: 600px;
 }
+
 .signup-login-form {
   padding: 20px 0px;
+}
+
+.card-img-container {
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	background: #dfdfdf;
+}
+
+.card-img {
+	height: 100%;
 }
 
 #title {

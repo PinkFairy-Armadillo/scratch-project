@@ -11,32 +11,30 @@ import './styles.css';
 import DetailedWeather from './components/DetailedWeather.jsx';
 import Search from './components/Search.jsx';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    return(
+    return (
       <Router>
         <div>
           <Switch>
-            <Route exact path={'/'}>
-              <Search />
-              <NewsView />
-              <ActivitiesView />
+            <Route exact path="/">
+              <div className="container-fluid main-content">
+                <Search />
+                <NewsView />
+                <ActivitiesView />
+              </div>
             </Route>
-            <Route exact path={'/detailed-weather'}>
-              {/*<DetailedWeather />*/}
+            <Route exact path="/detailed-weather">
+              <DetailedWeather />
             </Route>
           </Switch>
         </div>
-        </Router>
-      // <div>
-      //   <DetailedWeather />
-      // </div>
-    )
+      </Router>
+    );
   }
 }
 
