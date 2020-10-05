@@ -27,16 +27,34 @@ const WeatherView = props => {
     .catch(err => console.log('Weather fetch ERROR: ', err));
   }
   
-  const createWeatherBoxes = (weatherData) => {
-    return weatherData.map((day, i) => {
-      <div key={`dd${i}`} className='weather-wrapper'>
-        <strong><center>{day.dayName}</center></strong>
-        <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}01d@2x.png`}></img>
-        <div className='temp-wrapper'>
-          <p>{day.main.temp_max}°F</p>
-          <p>{day.main.min}°F</p>
+  const convertKtoF = (K) => Math.round((((K - 273.15) * 9) / 5) + 32);
+
+  const dayOfWeek = (dayNum) => {
+    switch (dayNum) {
+      case 0: return 'Sunday';
+      case 1: return 'Monday';
+      case 2: return 'Tuesday';
+      case 3: return 'Wednesday';
+      case 4: return 'Thursday';
+      case 5: return 'Friday';
+      case 6: return 'Saturday';
+      default: return 'Invalid input';
+    }
+  }
+
+  const createWeatherBoxes = (data) => {
+    const dayNum = new Date().getDay();
+    return data.map((day, i) => {
+      return (
+        <div key={`dd${i}`} className='weather-wrapper'>
+          <strong><center>{dayOfWeek(dayNum)}</center></strong>
+          <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}></img>
+          <div className='temp-wrapper'>
+            <p>{convertKtoF(day.main.temp_max)}°F</p>
+            <p>{convertKtoF(day.main.temp_min)}°F</p>
+          </div>
         </div>
-      </div>
+      )
     })
   }
 
@@ -46,7 +64,6 @@ const WeatherView = props => {
   },[]);
 
   if (fetchedData) {
-    //console.log(data)
     const weatherDivs = createWeatherBoxes(weatherData);
     return (
       <div className='weather-container'>
@@ -65,3 +82,10 @@ const WeatherView = props => {
 }
 
 export default connect(mapStateToProps, null)(WeatherView);
+
+/*TODO:
+  get more days for weather
+  fix search
+  link up redux
+  more info weather
+*/

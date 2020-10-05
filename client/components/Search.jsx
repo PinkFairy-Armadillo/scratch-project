@@ -13,6 +13,20 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     // send to back end
+    const fetchData = () => {
+      console.log('sending location');
+      fetch(`http://localhost:5000/location/${searchValue}`, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "Application/JSON",
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => console.log('Location fetch ERROR: ', err));
+    }
   }
 
 
