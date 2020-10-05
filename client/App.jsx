@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 //import WeatherView from './components/WeatherView.jsx';
 import NewsView from './components/NewsView.jsx';
-import Restaurants from './components/restaurants.jsx';
+import ActivitiesView from './components/ActivitiesView.jsx';
 import './styles.css';
 import DetailedWeather from './components/DetailedWeather.jsx';
 import Search from './components/Search.jsx';
@@ -26,6 +26,7 @@ class App extends Component {
               <Search />
               <Restaurants />
               <NewsView />
+              <ActivitiesView />
             </Route>
             <Route exact path={'/detailed-weather'}>
               <DetailedWeather />
