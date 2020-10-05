@@ -9,35 +9,26 @@ import NewsView from './components/NewsView.jsx';
 import ActivitiesView from './components/ActivitiesView.jsx';
 import './styles.css';
 import DetailedWeather from './components/DetailedWeather.jsx';
-import Search from './components/Search.jsx';
+import FrontPage from './components/FrontPage.jsx';
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+const App = props => {
+ 
     return(
       <Router>
         <div>
           <Switch>
             <Route exact path={'/'}>
-              <Search />
-              <NewsView />
-              <ActivitiesView />
+              <FrontPage />
             </Route>
             <Route exact path={'/detailed-weather'}>
-              {/*<DetailedWeather />*/}
+              <DetailedWeather />
             </Route>
           </Switch>
         </div>
         </Router>
-      // <div>
-      //   <DetailedWeather />
-      // </div>
     )
-  }
+  
 }
 
 export default App;
