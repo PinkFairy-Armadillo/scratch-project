@@ -45,19 +45,19 @@ const WeatherView = props => {
   const createWeatherBoxes = (data) => {
     const dayNum = new Date().getDay();
     return data.map((day, i) => {
+      console.log(day);
       return (
         <div key={`dd${i}`} className='weather-wrapper'>
           <strong><center>{dayOfWeek(dayNum)}</center></strong>
-          <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}></img>
+          <img src={`http://openweathermap.org/img/wn/${day.current.weather[0].icon}@2x.png`}></img>
           <div className='temp-wrapper'>
-            <p>{convertKtoF(day.main.temp_max)}°F</p>
-            <p>{convertKtoF(day.main.temp_min)}°F</p>
+            <p>{convertKtoF(day.daily[0].temp.max)}°F</p>
+            <p>{convertKtoF(day.daily[0].temp.min)}°F</p>
           </div>
         </div>
       )
     })
   }
-
 
   useEffect(() => {
     if (!fetchedData) fetchData();
