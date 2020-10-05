@@ -9,3 +9,8 @@ export const addUser = (data) => ({
   type: types.ADD_USER,
   payload: data,
 });
+
+export const addWeather = (data) => ({
+  type: types.ADD_WEATHER,
+  payload: data,
+});

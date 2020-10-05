@@ -19,7 +19,7 @@ const ActivitiesView = (props) => {
   const createActivities = (activitiesObject, category) => {
     return activitiesObject.map((activitiesInfo, i) => {
       return (
-        <Card key={`activities-card-${i}`}>
+        <Card key={`activities-card-${i}`} className={'activity-card'} style={{ 'width': '400px' }}>
           <div className="card-img-container">
             <Card.Img className="card-img" variant="top" src={activitiesInfo.image_url} />
           </div>
@@ -67,7 +67,7 @@ const ActivitiesView = (props) => {
     if (!fetchedData) fetchData();
   }, []);
 
-  useEffect( () => {
+  useEffect(() => {
     fetchData();
   }, [props.city])
 
