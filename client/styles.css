@@ -93,7 +93,7 @@
 
 .restaurantButtons {
   display: block;
-  width:300px;;
+  width:500px;;
   height: 40px;
   /* border: solid 1px black; */
   line-height: 4pt;
@@ -107,7 +107,7 @@
 
 .restaurantContainer {
   width: 100%;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   display: flex;
   flex-direction: row;
   justify-content:space-between;
@@ -122,20 +122,21 @@
   margin: 10px; 
   font-size: 12px;
   margin-top: 5px;
+  box-shadow: 2px 2px #444444;
 }
 
 .restaurantWrapper p {
-  font-size: 10px;
-  line-height: 5pt;
+  font-size: 14px;
+  line-height: 15pt;
   margin-left:5px;
 }
 
 .restaurantWrapper img {
-  margin-left:5px;
-  /* height: auto;
+  height: 150px;
   width: 100%;
+  min-width: 150px;
   display: flex;
-  border: 1px solid black; */
+  /* border: 1px solid black; */
 }
 .restaurantButtons button {
   width: 75px;

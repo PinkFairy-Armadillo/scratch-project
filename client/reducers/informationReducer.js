@@ -27,4 +27,5 @@ const informationReducer = (state = initialState, action) => {
   }
 }
 
+
 export default informationReducer;
