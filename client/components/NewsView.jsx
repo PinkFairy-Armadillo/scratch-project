@@ -13,7 +13,7 @@ const NewsView = props => {
   const DEFAULT_IMG = 'https://joebalestrino.com/wp-content/uploads/2019/02/Marketplace-Lending-News.jpg';
 
   const fetchData = (category = 'business') => {
-    fetch(`http://localhost:5000/news/${props.countryCode}?category=${category}`, {
+    fetch(`/news/${props.countryCode}?category=${category}`, {
       method: 'GET',
       headers: {
         "Content-Type": "Application/JSON",

@@ -8,8 +8,7 @@ const API_KEY = process.env.BUSINESSES_API_KEY;
 businessesController.getBusinesses = (req, res, next) => {
   const { category } = req.params;
   const { lat, lon } = req.query;
-  console.log(category, lat, lon);
-  console.log(API_KEY);
+  
   // log error if latitude or longitude are undefined
   if (lat === undefined || lon === undefined) {
     return next({
@@ -29,14 +28,12 @@ businessesController.getBusinesses = (req, res, next) => {
     .then((data) => (data.json()))
     .then(({ businesses }) => {
       res.locals.businesses = businesses;
-      console.log(businesses);
       return next();
     })
     .catch((err) => next(err));
 };
 
 businessesController.getBusinessesByPrice = (req, res, next) => {
-  console.log('entering getBusinessesByPrice');
   const { category, priceLevel } = req.params;
   const { lat, lon } = req.query;
 
@@ -66,7 +63,6 @@ businessesController.getBusinessesByPrice = (req, res, next) => {
   })
     .then((data) => (data.json()))
     .then(({ businesses }) => {
-      console.log(businesses);
       res.locals.businesses = businesses;
       return next();
     })
