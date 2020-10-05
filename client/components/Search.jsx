@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import WeatherView from './WeatherView.jsx';
+import Login from './Login.jsx';
 
 
 const mapDispatchToProps = dispatch => ({
@@ -41,6 +42,10 @@ const Search = () => {
 
   return (
     <div className='hero-container'>
+      <Link to={'/login'} className='loginButton'>
+          <button id='loginButton'>Login</button>
+          {/* <Login /> */}
+      </Link>
       <WeatherView />
       <div className='search-wrapper'>
         <h1><center>Find the best your city has to offer</center></h1>

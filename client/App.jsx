@@ -10,6 +10,7 @@ import ActivitiesView from './components/ActivitiesView.jsx';
 import './styles.css';
 import DetailedWeather from './components/DetailedWeather.jsx';
 import Search from './components/Search.jsx';
+import Login from './components/Login.jsx';
 
 
 class App extends Component {
@@ -22,20 +23,23 @@ class App extends Component {
       <Router>
         <div>
           <Switch>
+
+            <Route exact path={'/login'}>
+              <Login />
+            </Route>
+
             <Route exact path={'/'}>
               <Search />
               <NewsView />
               <ActivitiesView />
             </Route>
+
             <Route exact path={'/detailed-weather'}>
-              {/*<DetailedWeather />*/}
+              <DetailedWeather />
             </Route>
           </Switch>
         </div>
         </Router>
-      // <div>
-      //   <DetailedWeather />
-      // </div>
     )
   }
 }
