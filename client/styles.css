@@ -2,25 +2,38 @@
   box-sizing: border-box;
   margin:0;
   padding:0;
+  text-decoration: none;
 }
 
 .info-container {
   display: flex;
-
+  flex-direction: row;
+  justify-content:space-between;
+  flex-wrap: wrap;  
 }
 
 .item-wrapper {
-  height: auto;
-  width: auto;
+  /* height: auto;
+  width: auto; */
   display: flex;
-  flex-direction: column;
+  /* border: 1px solid black; */
+  /* margin: 10px; */
+  /* flex: 1; */
+  box-shadow: 2px 2px #444444;
+
+  height: 250px;
+  width: 18%;
+  min-width: 150px;
   border: 1px solid black;
-  margin: 10px;
-  flex: 1;
+  margin: 10px; 
+  font-size: 12px;
+  margin-top: 5px;
+  box-shadow: 2px 2px #444444;
+
 }
 
 .item-wrapper img{
-  height: auto;
+  height: 150px;
   width: 100%;
   display: flex;
   border: 1px solid black;
@@ -28,6 +41,7 @@
 
 .item-wrapper p, strong{
   margin: 0;
+  font-size: 11px;
   height: auto;
   width: 100%;
   display: flex;
@@ -95,7 +109,6 @@
   display: block;
   width:500px;;
   height: 40px;
-  /* border: solid 1px black; */
   line-height: 4pt;
   margin-left:5px;
 }
@@ -126,9 +139,10 @@
 }
 
 .restaurantWrapper p {
-  font-size: 14px;
-  line-height: 15pt;
+  font-size: 12px;
+  line-height: 6pt;
   margin-left:5px;
+  margin-top:5px;
 }
 
 .restaurantWrapper img {
@@ -180,9 +194,11 @@
 
 .hero-container {
   background-image: url('https://www.developmentguild.com/assets/nyc-banner-night.jpg');  
+  /* background-size: auto; */
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 120%;
+  min-height: 400px;
   justify-content: space-between;
   align-items: center;   
   background-repeat: no-repeat;
@@ -190,7 +206,8 @@
 }
 
 .search-input {
-  width: 600px;
+  width: 80%;
+  min-width:300px;
   height: 30px;
   margin-bottom: 10px;
 }
@@ -199,15 +216,20 @@
   width: 50px;
   height: 30px;
   margin-bottom: 10px;
+  font-size:13px;
+  font-weight: bold;
+  /* margin-left:5px; */
 }
 
 .search-wrapper h1{
-  font-size: 2.5em;
+  font-size: 27px;
   margin-bottom: 10px;
 }
 
 .search-wrapper {
   background: rgba(255, 255, 255, 0.2);
+  width:60%;
+  min-width:450px;
 }
 
 .signup-login-container {
@@ -215,4 +237,8 @@
 }
 .signup-login-form {
   padding: 20px 0px;
+}
+
+#title {
+  font-size: 27px;
 }
