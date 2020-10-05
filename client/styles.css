@@ -208,3 +208,10 @@
 .search-wrapper {
   background: rgba(255, 255, 255, 0.2);
 }
+
+.signup-login-container {
+  width: 600px;
+}
+.signup-login-form {
+  padding: 20px 0px;
+}
