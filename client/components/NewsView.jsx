@@ -62,7 +62,7 @@ const NewsView = props => {
 
     return (
       <div>
-      <h1>Local News Information</h1>
+      <h1 id='title'>Local News Information</h1>
       {buttonsArray}
       <div className='info-container'>
         {currentArticles}
@@ -71,7 +71,7 @@ const NewsView = props => {
     )
   } else {
     return (
-      <h1>Fetching from database</h1>
+      <h1 id='title'>Fetching from database</h1>
     )
   } 
 }

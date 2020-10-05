@@ -24,7 +24,6 @@ class App extends Component {
           <Switch>
             <Route exact path={'/'}>
               <Search />
-              <Restaurants />
               <NewsView />
               <ActivitiesView />
             </Route>

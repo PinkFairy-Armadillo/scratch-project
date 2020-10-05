@@ -70,7 +70,7 @@ const ActivitiesView = props => {
 
     return (
       <div>
-      <h1>Local Activities Information</h1>
+      <h1 id='title'>Local Activities Information</h1>
       <div className="restaurantButtons" >
       {buttonsArray}
       </div>
@@ -81,7 +81,7 @@ const ActivitiesView = props => {
     )
   } else {
     return (
-      <h1>Fetching from database</h1>
+      <h1 id='title'>Fetching from database</h1>
     )
   } 
 }
