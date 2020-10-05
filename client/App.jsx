@@ -4,11 +4,12 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import WeatherView from './components/WeatherView.jsx';
+//import WeatherView from './components/WeatherView.jsx';
 import NewsView from './components/NewsView.jsx';
 import ActivitiesView from './components/ActivitiesView.jsx';
 import './styles.css';
 import DetailedWeather from './components/DetailedWeather.jsx';
+import Search from './components/Search.jsx';
 
 
 class App extends Component {
@@ -22,7 +23,8 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path={'/'}>
-              <WeatherView />
+              <Search />
+              <Restaurants />
               <NewsView />
               <ActivitiesView />
             </Route>

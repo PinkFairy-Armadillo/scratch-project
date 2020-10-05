@@ -9,6 +9,7 @@ const PORT = 5000;
 const businessesRouter = require('./routes/businesses.js');
 const locationRouter = require('./routes/location.js');
 const newsRouter = require('./routes/news.js');
+const weatherRouter = require('./routes/weather.js');
 
 // application-level middleware
 app.use(bodyParser.json());
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/businesses', businessesRouter);
 app.use('/location', locationRouter);
 app.use('/news', newsRouter);
+app.use('/weather', weatherRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.resolve(__dirname, '..build')));
@@ -38,6 +40,9 @@ app.use((err, req, res, next) => {
   };
 
   const errObj = Object.assign({}, defaultErr, err);
+
+  console.log(errObj.log);
+
   return res.status(errObj.status).json(errObj.message);
 });
 
