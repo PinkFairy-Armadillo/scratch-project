@@ -14,7 +14,7 @@ const ActivitiesView = props => {
   const DEFAULT_IMG = 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80';
 
   const fetchData = (category = 'bars') => {
-    fetch(`http://localhost:5000/businesses/${category}?lat=${props.lat}&lon=${props.long}`, {
+    fetch(`/businesses/${category}?lat=${props.lat}&lon=${props.long}`, {
       method: 'GET',
       headers: {
         "Content-Type": "Application/JSON",
@@ -22,8 +22,6 @@ const ActivitiesView = props => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data) // GET ARRAY OF 5 OBJECTS OF NECESSARY CATEGORY 
-      console.log(category);
       setActivitiesData(data);
       setFetchedData(true);
       setCurrentActivities(createActivities(data)) // DISCUSS

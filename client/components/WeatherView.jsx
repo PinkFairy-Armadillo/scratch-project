@@ -11,8 +11,7 @@ const WeatherView = props => {
   const [fetchedData, setFetchedData] = useState(false);
 
   const fetchData = () => {
-    console.log('fetching weather');
-    fetch(`http://localhost:5000/weather?latitude=${props.lat}&longitude=${props.long}`, {
+    fetch(`/weather/?latitude=${props.lat}&longitude=${props.long}`, {
       method: 'GET',
       headers: {
         "Content-Type": "Application/JSON",
@@ -20,7 +19,6 @@ const WeatherView = props => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log([data.weather]);
       setWeatherData([data.weather]);
       setFetchedData(true);
     })
@@ -45,7 +43,6 @@ const WeatherView = props => {
   const createWeatherBoxes = (data) => {
     const dayNum = new Date().getDay();
     return data.map((day, i) => {
-      console.log(day);
       return (
         <div key={`dd${i}`} className='weather-wrapper'>
           <strong><center>{dayOfWeek(dayNum)}</center></strong>

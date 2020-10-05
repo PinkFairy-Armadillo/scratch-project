@@ -19,7 +19,6 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     // send to back end
-    console.log('btn clicked');
     sendLocation(searchValue);
     event.preventDefault();
 
@@ -27,17 +26,15 @@ const Search = () => {
   }
 
   const sendLocation = (location) => {
-    console.log('sending location');
-    fetch(`http://localhost:5000/location/${location}`, {
+    fetch(`/location/${location}`, {
       method: 'GET',
       headers: {
-        "Content-Type": "Application/JSON",
-        "Access-Control-Allow-Origin": '*'
+        "Content-Type": "Application/JSON"
       }
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      //console.log(data);
     })
     .catch(err => console.log('Location fetch ERROR: ', err));
   }

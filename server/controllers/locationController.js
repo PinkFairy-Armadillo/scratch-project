@@ -8,7 +8,6 @@ const API_KEY = process.env.GEOCODE_API_KEY;
 // get information from google maps api
 locationController.getLocationData = (req, res, next) => {
   const { location } = req.params;
-
   // TODO: handle possible parsing of params in case of spaces in location 'los angeles'
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${API_KEY}`;
   fetch(url)
