@@ -1,14 +1,13 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-//console.log(path.resolve(__dirname, 'client/index.html'))
 
 module.exports = {
   entry: path.resolve(__dirname, 'client/index.js'),
-  output: {   // The Webpack build process, after it runs, will make a file in the `build` folder called `bundle.js`.
+  output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-},
+  },
   module: {
     rules: [
       {
@@ -25,31 +24,52 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader"
-            
-          }
-        ]
+            loader: 'html-loader',
+          },
+        ],
       },
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader','sass-loader'],
-      }
-    ]
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'client/template.html'),
       filename: 'index.html',
-      alwaysWriteToDisk: true
+      alwaysWriteToDisk: true,
     }),
-    new HtmlWebpackHarddiskPlugin()
+    new HtmlWebpackHarddiskPlugin(),
   ],
   devServer: {
+    host: 'localhost',
+    port: 8080,
     contentBase: path.join(__dirname, 'build'),
-    //publicPath: '/build',
-      proxy: {
-        '/api': 'http://localhost:3001', // !!!CHECK FOR THE PORTS
+    publicPath: '/',
+    hot: true,
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    proxy: {
+      '/businesses/**': {
+        target: 'http://localhost:5000',
+        secure: false,
       },
-  }
+      '/location/**': {
+        target: 'http://localhost:5000',
+        secure: false,
+      },
+      '/news/**': {
+        target: 'http://localhost:5000',
+        secure: false,
+      },
+      '/weather/**': {
+        target: 'http://localhost:5000',
+        secure: false,
+      },
+    },
+  },
 };
