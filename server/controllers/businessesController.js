@@ -8,7 +8,6 @@ const API_KEY = process.env.BUSINESSES_API_KEY;
 businessesController.getBusinessData = (req, res, next) => {
   const { category } = req.params;
   const { lat, lon } = req.query;
-
   const limit = 5; // we can make this dynamic later
   const url = `https://api.yelp.com/v3/businesses/search?latitude=${lat}&longitude=${lon}&categories=${category}&limit=${limit}`;
 
